@@ -33,19 +33,6 @@ else:
     result = (ask_number - standard_number)*2
 print("The final result is", result)
 
-#%% dif21 #website_version
-# another way to write this code
-ask_number = int(input("Enter a number: "))
-def diff21(a): #it doesn't matter what we in the values inside the parenthesis
-                # as shown, "a" is just a dummy variable
-    if ask_number<=21:
-        return 21-ask_number
-    else: #n>21
-        return (ask_number-21)*2
-result= diff21(ask_number)#ask_number is in parentheses because we're using it
-                          # ask our input number for this function
-print(result)
-
 #%% near_hundred
 """Given an int n, return True if it is within 10 of 100 or 200. 
 Note: abs(num) computes the absolute value of a number.
@@ -155,7 +142,7 @@ def parrot_trouble(talking, hour):
 result = parrot_trouble(talking, hour)
 print(result)
 
-#%% makes10 - self version
+#%% makes10
 """
 Given 2 ints, a and b, return True if one if them is 10 or if their sum is 10.
 makes10(9, 10) → True
@@ -178,16 +165,8 @@ def makes10(a, b):
 
 result = makes10(a,b)
 print(result)
-#%% makes10 - website version
-a = int(input("Enter value A: "))
-b = int(input("Enter value B: "))
-def makes10(a, b):
-  return (a == 10 or b == 10 or a+b == 10) #this return statement automatically assumes that as long as the conditions
-    #written  in the parentheses are satisfy, this will return a True condtion
 
-result = makes10(a,b)
-print(result)
-#%%pos_neg - self-version
+#%%pos_neg
 """
 Given 2 int values, return True if one is negative and one is positive. 
 Except if the parameter "negative" is True, then return True only if both are negative.
@@ -219,15 +198,7 @@ def pos_neg(a, b, negative):
 result = pos_neg(a,b,negative)
 print(result)
 
-#%%pos_neg - website_version
-#the website version is a lot shorter
-def pos_neg(a, b, negative):
-  if negative:
-    return (a < 0 and b < 0)
-  else:
-    return ((a < 0 and b > 0) or (a > 0 and b < 0))
-
-#%%not-string self_written
+#%%not-string
 """Given a string, return a new string where "not " has been added to the front. 
 However, if the string already begins with "not", return the string unchanged.
 not_string('candy') → 'not candy'
@@ -249,20 +220,8 @@ def not_string(string_input):
 
 result = not_string(string_input)
 print(result)
-#%% not_string - web site example
-str = input("Enter a string: ")
-print (len(str))
-def not_string(str):
-  if str[:3] == "not":
-    return str
-  return "not " + str
-  # str[:3] goes from the start of the string up to but not
-  # including index 3
-result = not_string(str)
-print(result)
 
-
-#%%front_back self_written
+#%%front_back
 """
 Given a string, return a new string where the first and last chars have been exchanged.
 front_back('code') → 'eodc'
@@ -327,6 +286,7 @@ def string_times(str, n):
     return str *n
 result = string_times(str, n)
 print(result)
+
 #%% string_times using loops
 """desired output: Hi
                    HiHi 
@@ -342,22 +302,7 @@ def string_times(n,str):
 result = string_times(n, str)
 
 
-#%% string_times website-example
-"""the range function: starts from position 0"""
-n = int(input("Number of times the string be printed: "))
-str = input("Enter a string: ")
-def string_times(n,str):
-  result = ""
-  for i in range(n):  # range(n) is [0, 1, 2, .... n-1]
-    result = result + str  #as the i increases, the components in the string will be added to the result
-        #with the first run, the original string already there
-      #result needs to be there in order for us to use the last result
-  return result
-
-string_times_result = string_times(n,str)
-print(string_times_result)
-
-#%%front_times self_wriiten
+#%%front_times 
 """
 Given a string and a non-negative int n, we'll say that the front of the string is the first 3 chars, 
 or whatever is there if the string is less than length 3. Return n copies of the front;
@@ -391,7 +336,7 @@ result = string_bits(string)
 print(result)
 
 
-#%% string_splosion self_written
+#%% string_splosion 
 """"Given a non-empty string like "Code" return a string like "CCoCodCode".
 string_splosion('Code') → 'CCoCodCode'
 string_splosion('abc') → 'aababc'
@@ -407,23 +352,7 @@ def string_splosion(string):
 result = string_splosion(string)
 print(result)
 
-
-#%% string_splosion website
-str = input("Enter a string: ")
-def string_splosion(str):
-  result = ""
-  # On each iteration, add the substring of the chars 0..i
-  for i in range(len(str)):
-    result = result + str[:i+1]
-    #str[:] means the whole string
-    #str[:i] means print the whole string one by one but only for however long the string is
-            #this method will exclude the last letter
-    #str[:i+1] means print the whole string but will also include the last stirng
-  return result
-string_splosion_result= string_splosion(str)
-print(string_splosion_result)
-
-#%%last2 - self-written
+#%%last2 
 """Given a string, return the count of the number of times that a substring 
 length 2 appears in the string and also as the last 2 chars of the string, 
 so "hixxxhi" yields 1 (we won't count the end substring).
@@ -445,7 +374,7 @@ result = last2(str)
 print(result)
 
 
-#%%array_count9 self_writen
+#%%array_count9 
 """Given an array of ints, return the number of 9's in the array.
 array_count9([1, 2, 9]) → 1
 array_count9([1, 9, 9]) → 2
@@ -462,15 +391,6 @@ def array_count9(nums):
 result = array_count9(nums)
 print(result)
 
-
-#%%array_count9 website-version
-def array_count9(nums):
-  count = 0
-  # Standard loop to look at each value
-  for num in nums:
-    if num == 9:
-      count = count + 1
-  return count
 
 
 #%% array_front9
@@ -490,6 +410,7 @@ def array_front9(nums):
 
 result = array_front9(nums)
 print(result)
+
 #%% array123
 """Given an array of ints, return True if the sequence of numbers 1, 2, 3 appears in the array somewhere.
 array123([1, 1, 2, 3, 1]) → True
@@ -511,19 +432,8 @@ def array123(nums):
 result = array123(nums)
 print(result)
 
-#%% array123 website-version:
-nums= [1, 1, 2, 4, 1]
-def array123(nums):
-    for i in range(len(nums)-2): #without the two here, when i=2, we would not be able to get the fourth and fifth term
-        #ex when i=4, we can't do [i+2]
-        if nums[i] == 1 and nums[i + 1] == 2 and nums[i + 2] == 3:
-            return True
-    return False
-result = array123(nums)
-print(result)
 
-
-#%% string_match self_version
+#%% string_match 
 """Given 2 strings, a and b, return the number of the positions where they 
 contain the same length 2 substring. So "xxcaazz" and "xxbaaz" yields 3, 
 since the "xx", "aa", and "az" substrings appear in the same place in both strings.
@@ -548,22 +458,7 @@ def string_match(string_a, string_b):
 result = string_match(string_a, string_b)
 print(result)
 
-#%% website version
-def string_match(a, b):
-    # Figure which string is shorter.
-    shorter = min(len(a), len(b))
-    count = 0
-
-    # Loop i over every substring starting spot.
-    # Use length-1 here, so can use char str[i+1] in the loop
-    for i in range(shorter - 1):
-        a_sub = a[i:i + 2]
-        b_sub = b[i:i + 2]
-        if a_sub == b_sub:
-            count = count + 1
-    return count
-
-#%% hello_name self_written
+#%% hello_name 
 """Given a string name, e.g. "Bob", return a greeting of the form "Hello Bob!".
 hello_name('Bob') → 'Hello Bob!'
 hello_name('Alice') → 'Hello Alice!'
@@ -654,6 +549,7 @@ def first_two(str):
     return new_string
 result = first_two(str)
 print(result)
+
 #%% first_half
 """Given a string of even length, return the first half. 
 So the string "WooHoo" yields "Woo".
@@ -665,6 +561,7 @@ def first_half(str):
     return str[0:int(len(str)/2)]
 result = first_half(str)
 print(result)
+
 #%% without_end
 """Given a string, return a version without the first and last char, 
 so "Hello" yields "ell". The string length will be at least 2.
@@ -782,6 +679,7 @@ sum3([7, 0, 0]) → 7"""
 
 def sum3(nums):
     return sum(nums)
+ 
 #%% rotate_left3
 """Given an array of ints length 3, return an array with 
 the elements "rotated left" so {1, 2, 3} yields {2, 3, 1}.
@@ -894,6 +792,7 @@ def has23(nums):
 
 result = has23(nums)
 print(result)
+
 #%%cigar party
 """When squirrels get together for a party, they like to have cigars. A squirrel party is successful when the number 
 of cigars is between 40 and 60, inclusive. Unless it is the weekend, in which case there is no upper bound on the 
@@ -913,6 +812,7 @@ def cigar_party(cigars, is_weekend):
     return False
 result = cigar_party(cigars,is_weekend)
 print(result)
+
 #%%date_fashion
 """You and your date are trying to get a table at a restaurant. The parameter "you" is the stylishness of your clothes, 
 in the range 0..10, and "date" is the stylishness of your date's clothes. The result getting the table is encoded as an
@@ -996,6 +896,7 @@ def sorta_sum(a, b):
     return total_sum
 result = sorta_sum(a,b)
 print(result)
+
 #%% alarm_clock
 """Given a day of the week encoded as 0=Sun, 1=Mon, 2=Tue, ...6=Sat, and a boolean indicating if we are on vacation, 
 return a string of the form "7:00" indicating when the alarm clock should ring. Weekdays, the alarm should be "7:00" 
@@ -1046,7 +947,8 @@ def in1to10(n, outside_mode):
         if n>=1 and n<=10:
             return True
     return False
-#%%
+   
+#%%near_ten
 """Given a non-negative number "num", return True if num is within 2 of a multiple of 10. Note: (a % b) is the 
 remainder of dividing a by b, so (7 % 5) is 2. See also: Introduction to Mod
 near_ten(12) → True
@@ -1054,7 +956,7 @@ near_ten(17) → False
 near_ten(19) → True"""
 print(19/10)
 print(6%10)
-#%%near_ten
+
 num = int(input("Enter a num: "))
 def near_ten(num):
     remainder = num%10
@@ -1088,9 +990,7 @@ def make_bricks(small_stock, big_stock, goal):
 result = make_bricks (small_stock, big_stock, goal)
 print(result)
 
-#%%
-print(13//5)
-555 #%%lone_sum
+ #%%lone_sum
 """Given 3 int values, a b c, return their sum. However, if one of the values 
 is the same as another of the values, it does not count towards the sum.
 lone_sum(1, 2, 3) → 6
@@ -1141,6 +1041,7 @@ def lucky_sum(a, b, c):
     return total_sum
 result = lucky_sum(a,b,c)
 print(result)
+
 #%% no_teen_sum
 """Given 3 int values, a b c, return their sum. However, if any of the values is a teen -- in the range 13..19
 inclusive -- then that value counts as 0, except 15 and 16 do not count as a teens. Write a separate helper
@@ -1214,6 +1115,7 @@ def close_far(a, b, c):
     return False
 result = close_far(a,b,c)
 print(result)
+
 #%%make_chocolate
 """We want make a package of goal kilos of chocolate. We have small bars (1 kilo each) and big bars (5 kilos each).
 Return the number of small bars to use, assuming we always use big bars before small bars. Return -1 if it can't be done.
@@ -1250,6 +1152,7 @@ def double_char(str):
     return new_string
 result = double_char(str)
 print(result)
+
 #%%count_hi
 """Return the number of times that the string "hi" appears anywhere in the given string.
 count_hi('abc hi ho') → 1
